@@ -1,0 +1,172 @@
+<!doctype html><html lang=zh><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>番队人审评估</title><style>
+:root{--bg:#0d1117;--card:#161b22;--line:#30363d;--txt:#e6edf3;--dim:#8b949e;--red:#f85149;--amber:#d29922;--green:#3fb950}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.6 -apple-system,"PingFang SC",system-ui,sans-serif}
+header{padding:18px 18px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg)}
+h1{margin:0;font-size:18px}.sub{color:var(--dim);font-size:12px;margin-top:4px}
+.kpi{display:flex;gap:14px;margin-top:10px;font-size:12px;flex-wrap:wrap}.kpi b{font-size:16px}
+.wrap{padding:16px}
+h2{font-size:15px;margin:22px 0 8px;padding:8px 12px;border-radius:8px}
+.h-kill{background:rgba(248,81,73,.13);color:var(--red)}.h-yi{background:rgba(210,153,34,.13);color:var(--amber)}
+.h-bing{background:rgba(63,185,80,.13);color:var(--green)}
+.hint{color:var(--dim);font-size:12.5px;margin:0 2px 10px}
+.item{display:flex;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:10px 12px;margin-bottom:7px;align-items:flex-start}
+.item input{margin-top:4px;transform:scale(1.25)}.item b{color:#a5d6ff}
+.meta{color:var(--dim);font-size:12px;margin-top:3px}.code{font-family:ui-monospace,monospace;font-size:11.5px;color:#d29922}
+.more{color:var(--dim);font-size:12px}
+.auto{background:rgba(88,166,255,.1);border:1px solid #1f6feb;border-radius:9px;padding:12px;color:#79c0ff;font-size:13px}
+footer{padding:16px;color:var(--dim);font-size:12px;border-top:1px solid var(--line);margin-top:20px}
+</style></head><body>
+<header><h1>🗳️ 番队人审评估</h1>
+<div class=sub>由 seed_router 分流后自动生成 · 2026-07-15 08:30 · 打勾/记下你的意见,回复我即可执行</div>
+<div class=kpi><span style=color:#f85149>🔴判死 <b>37</b></span><span style=color:#d29922>🟡软概念 <b>218</b></span>
+<span style=color:#3fb950>🟢宏观 <b>34</b></span><span style=color:#58a6ff>🔵甲连自动 <b>120</b></span></div></header>
+<div class=wrap>
+
+<div class=auto>🔵 <b>甲连 120 个技术指标种子</b>:pandas-ta 可全自动加工,<b>无需你审</b>,你批"开甲连"我就自动接。</div>
+
+<h2 class=h-kill>🔴 判死候选 · 37 个(需你确认)</h2>
+<p class=hint>这些种子拿"结果"(胜率/夏普/回撤)当输入,逻辑错、救不了。默认全勾=建议判死。<b>不想杀的取消勾</b>,把编号告诉我;判死不可逆,你点头我才删。</p>
+<label class=item><input type=checkbox checked><div><b>#1</b> V形反转极难交易，应避免参与，或在小级别捕捉。<div class=meta>缺(结果变量): <span class=code>pattern_v_reversal, win_rate, risk_score, cycle_level</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#2</b> 通过分析供需关系建立市场预期<div class=meta>缺(结果变量): <span class=code>市场供需强度, 预期收益率, 交易活跃度</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#3</b> 市场常利用交易者的急躁情绪导致错误决策，因此情绪控制是关键风险点。<div class=meta>缺(结果变量): <span class=code>情绪指数, win_rate</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#4</b> 极少出手、极轻仓位、极强纪律、低期待。<div class=meta>缺(结果变量): <span class=code>trade_frequency, 仓位比例, 交易纪律性, 预期收益率</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#5</b> 仓位管理是交易成功的核心要素，方向正确但仓位错误仍会导致亏损<div class=meta>缺(结果变量): <span class=code>position_size, win_rate, profit_loss_ratio</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#6</b> 风险覆盖：用少数优质交易覆盖多数小亏损。<div class=meta>缺(结果变量): <span class=code>风险调整收益率, sharpe_ratio, max_drawdown, win_rate</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#7</b> 回撤控制：单笔亏损不超过10%，斩立绝。<div class=meta>缺(结果变量): <span class=code>max_drawdown_per_trade</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#8</b> 趋势强弱判断：回调幅度&lt;50%且时间短为强势，反之为弱势<div class=meta>缺(结果变量): <span class=code>price_series, drawdown_series, time_series</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#9</b> 复盘铁律：记录入场点位、方向、止损止盈、趋势关键位、信号及盈亏原因<div class=meta>缺(结果变量): <span class=code>entry_price, stop_loss, take_profit, trend_key_level, signal_strength, pnl</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#10</b> 利用凯利公式决定最优下注比例，考虑赔率和胜率，用于优化仓位管理。<div class=meta>缺(结果变量): <span class=code>win_rate, odds_ratio</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#11</b> 资金规模与交易策略的匹配<div class=meta>缺(结果变量): <span class=code>资金规模, 策略类型, sharpe_ratio, max_drawdown, win_rate</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#12</b> 分红前后总资产在除权后保持不变，投资者需关注股息收益计算与股价波动的关系<div class=meta>缺(结果变量): <span class=code>股息收益率, 除权价差, 总资产变化</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#13</b> 采用斐波那契回撤位（0.382、0.5）作为短线支撑判断主力吸筹意图的工具<div class=meta>缺(结果变量): <span class=code>斐波那契回撤_0.382, 斐波那契回撤_0.5, 主力吸筹意图</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#14</b> Adverse regulatory changes often trigger extreme pessimism in an industry, which<div class=meta>缺(结果变量): <span class=code>监管政策变化指标, 行业悲观情绪指标, 行业收益率</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#15</b> 保护本金是交易员的第一课，优先控制亏损，避免回本压力增加<div class=meta>缺(结果变量): <span class=code>max_drawdown, loss_ratio, recovery_factor</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#16</b> 宏观交易的胜率通常在50-55%，需通过控制亏损和放大盈利来提升年化收益<div class=meta>缺(结果变量): <span class=code>win_rate, 盈亏比例</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#17</b> 核心盈利来自少数优秀交易（如年内2-3笔贡献80%收益），需让盈利交易持续运行<div class=meta>缺(结果变量): <span class=code>trade_pnl, trade_duration, win_rate, profit_concentration</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#18</b> 使用聚合收入增长（私营部门就业、工时、工资增长）作为名义增长的实时代理指标<div class=meta>缺(结果变量): <span class=code>就业增长率, 平均工时变化, 平均工资增长率, 名义gdp增速, 市场收益率</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#19</b> 比特币作为反制政策的资产类别，可能在政策不确定性下表现强劲<div class=meta>缺(结果变量): <span class=code>政策不确定性指标, 比特币收益率</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#20</b> 在政策不确定性下，短期内可能出现资产价格分化（如股市/债券/外汇表现差异）<div class=meta>缺(结果变量): <span class=code>政策不确定性指数, 股市收益率, 债券收益率, 外汇汇率变化</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#21</b> 通过收益率曲线形态（如扁平化）区分真实流动性变化与单纯轮动<div class=meta>缺(结果变量): <span class=code>收益率曲线形态, 流动性指标</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#22</b> 将指数分解为盈利、估值和核心驱动股票以分析集中度风险<div class=meta>缺(结果变量): <span class=code>index_constituents, profit_factor, valuation_factor, core_drivers, concentration_risk</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#23</b> 通胀不确定性驱动股债相关性转变，需从第一性原理分析宏观结构<div class=meta>缺(结果变量): <span class=code>通胀率, 货币政策工具利率, 股债收益率差</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#24</b> 主动持有风险而非抑制风险以获取收益<div class=meta>缺(结果变量): <span class=code>volatility_30d, leverage_factor, sharpe_ratio, max_drawdown</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#25</b> 异常收益来自尾部事件，行业结构围绕对冲尾部风险而非拥抱尾部收益<div class=meta>缺(结果变量): <span class=code>行业收益率, 行业波动率, 行业偏度, 行业尾部风险指标, 对冲策略收益</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#26</b> 风险偏好信号（如比特币相关信用工具）与曲线其他部分的关联性分析<div class=meta>缺(结果变量): <span class=code>比特币相关信用工具, 收益率曲线各段斜率/水平</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#27</b> Trader&#x27;s Trilemma（边缘、频率、风险承受能力）可用于评估交易者的风格匹配与风险管理框架<div class=meta>缺(结果变量): <span class=code>trade_frequency, win_rate, risk_per_trade, sharpe_ratio</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#28</b> 通过分析历史熊市的三种模式（循环、事件驱动、结构化）及对应的触发因素、下跌动因、利率背景与复苏形态，来预测当前市场趋势并规划反弹路径<div class=meta>缺(结果变量): <span class=code>market_regime, interest_rate, event_shock, recovery_shape, drawdown_factor</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#29</b> 收益率上升可能由不确定性（如战争）驱动，而下降可能是技术性修正，可通过MOVE指数观察确定性变化<div class=meta>缺(结果变量): <span class=code>收益率, move指数</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#30</b> 政府推行长期资本收益免税政策可作为加密资产长期价值支撑的假设<div class=meta>缺(结果变量): <span class=code>政策支持因子, 长期价值因子, 加密资产收益率</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#31</b> 宏观经济强势（如就业、GDP、ISM指数）与短期流动性紧张（如美债收益率）的背离现象，可作为风险提前预警指标<div class=meta>缺(结果变量): <span class=code>就业信号, gdp信号, ism指数信号, 美债收益率信号</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#32</b> 超高估值（如95倍销售额）可能预示长期风险<div class=meta>缺(结果变量): <span class=code>pe_ratio, ps_ratio, market_cap, revenue, volatility_3y, drawdown_3y</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#33</b> 60/40资产配置依赖股债负相关性，当相关性转正时对冲效果失效<div class=meta>缺(结果变量): <span class=code>股债日收益率相关系数, 60/40组合收益率, 股债波动率</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#34</b> K型经济分化：顶部10%消费占比50%，底部80%消费占比下降，资产拥有者与非拥有者的差距扩大<div class=meta>缺(结果变量): <span class=code>消费占比_顶部10%, 消费占比_底部80%, 资产拥有者_虚拟变量, 市场收益率_基准</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#35</b> 强势上涨后（如8周涨幅≥12%或纳斯达克100前100天涨幅≥15%），未来12个月市场仍有较高概率继续上涨，历史中位数收益约17-19%。<div class=meta>缺(结果变量): <span class=code>8周涨幅, 纳斯达克100前100天涨幅, 未来12个月收益率</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#36</b> 机构采用加密资产时高度选择性，仅关注高信念、风险调整后收益强的核心资产<div class=meta>缺(结果变量): <span class=code>institutional_holdings, sharpe_ratio, asset_volatility</span></div></div></label>
+<label class=item><input type=checkbox checked><div><b>#37</b> 自动化时代（AI、比特币、机器人）挤压低效率，整体通缩压力大于通胀<div class=meta>缺(结果变量): <span class=code>ai板块指数, 比特币价格, 机器人概念股, 债券收益率, 黄金价格, 通胀预期指数</span></div></div></label>
+
+<h2 class=h-yi>🟡 软概念(金子)· 218 个(挑优先)</h2>
+<p class=hint>没法定义=蓝海,研究出定义就独占。sider 深研金贵(250/月),<b>你挑几个值得先攻的</b>告诉我。</p>
+<div class=item><div><b>·</b> 形态分析基于人性不变，历史会重演，可量化跟踪趋势。<div class=meta><span class=code>technical_pattern_score, pattern_recurrence_index, market_sentiment_factor</span></div></div></div>
+<div class=item><div><b>·</b> 大周期形态决定方向，小周期噪音多，勿逆势交易。<div class=meta><span class=code>signal_long_cycle_trend</span></div></div></div>
+<div class=item><div><b>·</b> 趋势线在横盘市场失效，需避免使用<div class=meta><span class=code>trend_line_break, trend_slope, range_period</span></div></div></div>
+<div class=item><div><b>·</b> 大周期形态决定方向，小周期噪音多，勿逆势交易。<div class=meta><span class=code>大周期形态信号, 小周期价格波动信号</span></div></div></div>
+<div class=item><div><b>·</b> 市场循环于吸收、拉升、派发、下跌四阶段，据此调整策略。<div class=meta><span class=code>market_phase_signal, strategy_return_signal</span></div></div></div>
+<div class=item><div><b>·</b> 量价背离（价创新高/新低量萎缩）预示趋势反转。<div class=meta><span class=code>价格创新高, 价格创新低, 成交量萎缩</span></div></div></div>
+<div class=item><div><b>·</b> 移动平均线用于判断趋势方向，价格在均线上方且均线向上为上涨趋势。<div class=meta><span class=code>移动平均线, 价格突破均线, 均线斜率</span></div></div></div>
+<div class=item><div><b>·</b> 多周期联动：大周期定趋势，小周期找入场点。<div class=meta><span class=code>daily_trend, intraday_entry_signal</span></div></div></div>
+<div class=item><div><b>·</b> 预期建立需基于商品周期和节点的分析。<div class=meta><span class=code>周期性特征, 节点特征</span></div></div></div>
+<div class=item><div><b>·</b> 供需关系是交易亏损的关键因素，而非方向选择<div class=meta><span class=code>订单流强度, 持仓分布偏差, 成交量异常</span></div></div></div>
+<div class=item><div><b>·</b> 供需关系的本质是买卖双方在市场中的强度和紧迫性较量，而非简单数量对比。<div class=meta><span class=code>order_book_imbalance, transaction_urgency_index</span></div></div></div>
+<div class=item><div><b>·</b> 趋势的形成需要强度和持续性的结合。<div class=meta><span class=code>trend_strength, trend_duration</span></div></div></div>
+<div class=item><div><b>·</b> 90%亏损因站错队伍，非看错方向。<div class=meta><span class=code>持仓集中度, 机构持仓变化, 资金流向, 北向资金净流入, 主力合约持仓</span></div></div></div>
+<div class=item><div><b>·</b> 所有爆仓本质都是时间掌控力的破产<div class=meta><span class=code>交易时间分布, 持仓时长, 决策延迟</span></div></div></div>
+<div class=item><div><b>·</b> 市场奖励可恢复的人<div class=meta><span class=code>市场奖励持续性, 市场奖励周期性, 市场奖励波动率</span></div></div></div>
+<div class=item><div><b>·</b> 高杠杆交易压缩时间窗口，降低容错率，增加清算风险。<div class=meta><span class=code>leverage, avg_holding_period, liquidation_event_flag</span></div></div></div>
+<div class=item><div><b>·</b> 杠杆安全倍数公式用于量化最大可承受杠杆倍数<div class=meta><span class=code>杠杆安全倍数公式, 最大可承受杠杆倍数</span></div></div></div>
+<div class=item><div><b>·</b> 杠杆是剥夺选择权的机制，需警惕人性弱点放大<div class=meta><span class=code>leverage, 交易者情绪指数, trade_frequency</span></div></div></div>
+<div class=item><div><b>·</b> 仓位生命线：首次开仓不超过计划仓位的三分之一。<div class=meta><span class=code>position_size, planned_position</span></div></div></div>
+<div class=item><div><b>·</b> 高杠杆交易在历史中反复导致灾难，应避免使用高杠杆。<div class=meta><span class=code>leverage, trade_disaster</span></div></div></div>
+<div class=item><div><b>·</b> 永续合约本质是期货，没有改变核心基因<div class=meta><span class=code>perpetual_contract, future_contract, core_gene</span></div></div></div>
+<div class=item><div><b>·</b> 交易所可能操纵流动性，虚假深度<div class=meta><span class=code>exchange_liquidity, trade_depth</span></div></div></div>
+<div class=item><div><b>·</b> 反转形态的形态和信号需要与关键位置、量能结合使用。<div class=meta><span class=code>形态信号, 关键位置信号, 量能信号</span></div></div></div>
+<div class=item><div><b>·</b> 反转形态（如黄昏之星和晨星）需出现在趋势末端，并且需满足特定放量特征。<div class=meta><span class=code>反转形态信号, 放量特征信号</span></div></div></div>
+<div class=item><div><b>·</b> 指标为价格衍生品，存在滞后性，裸K是最直接且领先的信号<div class=meta><span class=code>裸k价格, 价格衍生指标</span></div></div></div>
+<div class=item><div><b>·</b> 撕破法则：关键位突破后快速回收的K线为高胜率入场信号，过滤假突破<div class=meta><span class=code>关键阻力位, 关键支撑位, 突破确认, 回收k线, 成交量放大</span></div></div></div>
+<div class=item><div><b>·</b> 顺势交易原则：仅做顺势结构的信号，避免逆势反弹<div class=meta><span class=code>顺势结构信号, 趋势强度指标</span></div></div></div>
+<div class=item><div><b>·</b> 大趋势才是盈利关键，小波动为噪音，需专注于顺势交易<div class=meta><span class=code>趋势强度指标, 波动率过滤器</span></div></div></div>
+<div class=item><div><b>·</b> 市场有明确的理论指导（如道氏理论），可以从中梳理核心假设、定理和原则进行系统性学习<div class=meta><span class=code>市场趋势信号, 周期性信号</span></div></div></div>
+<div class=item><div><b>·</b> 趋势线是判断市场方向、支撑与阻力的直观工具，与道氏理论的核心思想相结合能有效过滤市场噪音。<div class=meta><span class=code>trend_line, dow_theory_signal</span></div></div></div>
+<div class=item><div><b>·</b> 道氏理论强调趋势延续、历史重演、人性不变，通过趋势线递延可以确认市场反转及支撑压力的关键点。<div class=meta><span class=code>趋势线, 历史价格数据</span></div></div></div>
+<div class=item><div><b>·</b> 趋势线的斜率可作为趋势强度的指标，并帮助判断市场即将反转或加速的动态变化。<div class=meta><span class=code>趋势线斜率, 趋势强度, 市场反转, 加速</span></div></div></div>
+<div class=item><div><b>·</b> 长期交易竞争力取决于体系完整性而非技术数量<div class=meta><span class=code>多因子组合信号, 单一技术信号</span></div></div></div>
+<div class=item><div><b>·</b> 成交量萎缩但资金活跃度足时，只有裸奔板块能推动大幅突破，暗示高成交量是成功突破的重要前置条件<div class=meta><span class=code>成交量信号, 资金活跃度信号, 板块信号</span></div></div></div>
+<div class=item><div><b>·</b> 观察多头结构中幅度收敛（区间缩小）可预示即将变盘，利用该规则进行提前风险控制<div class=meta><span class=code>multi_head_structure_convergence</span></div></div></div>
+<div class=item><div><b>·</b> 下午和晚上不同时间段的市场行为与报价变化可用来识别试盘和共识形成的时间窗口，从而确定更有利的交易时间段<div class=meta><span class=code>time_slot, market_behavior, quote_change</span></div></div></div>
+<div class=item><div><b>·</b> 月线看趋势，周线看顶底，日线找买点<div class=meta><span class=code>月线趋势信号, 周线顶底信号, 日线买点信号</span></div></div></div>
+<div class=item><div><b>·</b> 趋势交易中不可开逆势单，上涨未结束不做空，下跌未结束不做多<div class=meta><span class=code>市场趋势方向信号, 交易方向信号</span></div></div></div>
+<div class=item><div><b>·</b> 随机行走理论提醒低杠杆或使用现货对抗偶发行情<div class=meta><span class=code>随机行走理论, 低杠杆, 现货策略, 偶发行情</span></div></div></div>
+<div class=item><div><b>·</b> 利用下降趋势线和下降通道判断下跌趋势和可能的底部。<div class=meta><span class=code>下降趋势线, 下降通道</span></div></div></div>
+<div class=item><div><b>·</b> 庄家吸筹阶段表现为突破下降趋势线后的横盘，建仓应该慢且分批进行。<div class=meta><span class=code>趋势线突破信号, 横盘区间识别信号</span></div></div></div>
+<div class=item><div><b>·</b> 通过不断低买高卖来降低原始持仓的成本，直至将成本降为零，从而实现低风险持仓。<div class=meta><span class=code>持仓成本, 股票价格, 买入量</span></div></div></div>
+<div class=item><div><b>·</b> 不在基本面较差的个股上尝试波段操作，避免因初始判断错误而陷入更深的亏损。<div class=meta><span class=code>basic_fundamental_index, swing_operation_result</span></div></div></div>
+<div class=item><div><b>·</b> 高杠杆资金的普及容易形成泡沫，但政策介入去杠杆可能迅速引发市场深度调整。<div class=meta><span class=code>leverage_funds, policy_intervention, market_bubble, market_adjustment</span></div></div></div>
+<div class=item><div><b>·</b> 三段涨跌的K线走势假设可以作为判断市场结构和制定交易策略的基础，需要验证其规律性。<div class=meta><span class=code>kline_triple_segment</span></div></div></div>
+<div class=item><div><b>·</b> VIX指数区间判断消息面真假：VIX&lt;15极度贪婪利好有效，15-25正常波动可正常消化，25-35高度恐慌利好暴涨为假，&gt;35极度恐慌远离<div class=meta><span class=code>vix指数区间_&lt;15, vix指数区间_15-25, vix指数区间_25-35, vix指数区间_&gt;35</span></div></div></div>
+<div class=item><div><b>·</b> VIX在25以上时，消息面暴涨+VIX5分钟急跌超15%等于假利好不追<div class=meta><span class=code>vix_level, vix_5min_rate_of_change, news_sentiment_score</span></div></div></div>
+<div class=item><div><b>·</b> 消息面仅用于为K线技术面背锅，交易应以技术面为主<div class=meta><span class=code>kline_technical_signal, news_message_signal</span></div></div></div>
+<div class=item><div><b>·</b> 仓位管理<div class=meta><span class=code>holding_signal, fund_allocation</span></div></div></div>
+<div class=item><div><b>·</b> 金叉可能成为杀猪刀，需警惕主力资金在金叉前已完成筹码转移<div class=meta><span class=code>金叉信号, 主力资金流向, 筹码转移</span></div></div></div>
+<div class=item><div><b>·</b> 做市商通过幽灵挂单等策略试探市场承接力，其行为特征可用于预测价格变化方向。<div class=meta><span class=code>order_book_imbalance, hidden_liquidity, order_cancellation_rate</span></div></div></div>
+<div class=item><div><b>·</b> 对止损单设置进行反猎杀，通过数学算法设定买单在主力猎杀位置入场，从而获取反弹收益。<div class=meta><span class=code>止损单设置, 主力猎杀位置, 反弹收益</span></div></div></div>
+<div class=item><div><b>·</b> 高分红策略下，需同时评估股价的长期走势以避免陷入强制调价与股价下跌的双重风险<div class=meta><span class=code>股价长期走势信号, 分红策略关联信号</span></div></div></div>
+<div class=item><div><b>·</b> 真实分红收益率等于股息率乘以股价涨跌幅比值，可用于评估高股息投资策略是否优于其他资产配置<div class=meta><span class=code>dividend_yield, stock_return</span></div></div></div>
+<div class=item><div><b>·</b> 不同涨跌幅对应不同的交易策略，结合分档和动态新规预测交易行为。<div class=meta><span class=code>涨跌幅信号, 分档信号, 动态新规信号</span></div></div></div>
+<div class=item><div><b>·</b> 通过集合竞价阶段的挂单变化观察主力对当天走势的态度。<div class=meta><span class=code>集合竞价挂单数据</span></div></div></div>
+<div class=item><div><b>·</b> 以盘中表现筛选强势股后尾盘重仓，次日高开即卖的短线操作法则<div class=meta><span class=code>stock_performance, trade_strategy, market_behavior</span></div></div></div>
+<div class=item><div><b>·</b> 高换手率可能等于主力派发，低换手率可能表明较弱人气与难以吸筹<div class=meta><span class=code>turnover_rate</span></div></div></div>
+<div class=item><div><b>·</b> 图形结构出现吸筹完毕信号（低位放量+拉高建仓）<div class=meta><span class=code>放量, 拉高建仓, 低位</span></div></div></div>
+<div class=item><div><b>·</b> 龙头股扭亏公告作为主力投石问路的舆论测试信号<div class=meta><span class=code>龙头股扭亏公告, 主力投石问路, 舆论测试</span></div></div></div>
+<p class=more>…共 218 个,仅显示前 60。</p>
+
+<h2 class=h-bing>🟢 宏观 · 34 个(挑优先)</h2>
+<p class=hint>算这些宏观量和加密的相关性做因子。<b>你挑先算哪几个</b>。</p>
+<div class=item><div><b>·</b> 交易系统应建立在价格本质分析之上，而非仅依赖技术指标。<div class=meta><span class=code>基本面因子, 宏观经济指标, 市场情绪指标, 技术指标</span></div></div></div>
+<div class=item><div><b>·</b> SF比值高的商品更能保持价值，抵抗价格波动。<div class=meta><span class=code>销售毛利率, 资产周转率, volatility</span></div></div></div>
+<div class=item><div><b>·</b> 做空股市等于做多原油，战争背景下资产负相关可套利<div class=meta><span class=code>股市指数, 原油价格</span></div></div></div>
+<div class=item><div><b>·</b> 从市盈率分档分析当前估值水平以判断投资决策。<div class=meta><span class=code>pe_ratio</span></div></div></div>
+<div class=item><div><b>·</b> 筛选时关注涨幅、量比、换手率、市值等多指标并通过回测优化参数<div class=meta><span class=code>涨幅, 量比, 换手率, market_cap</span></div></div></div>
+<div class=item><div><b>·</b> 支撑位强度与市值规模相关（大盘股0.618收敛性更强）<div class=meta><span class=code>market_cap, support_level</span></div></div></div>
+<div class=item><div><b>·</b> 行业周线RSI≤70持续6个月以上，主力反复摸底空头子弹打光<div class=meta><span class=code>industry_weekly_rsi, institutional_buying_volume, short_interest_ratio</span></div></div></div>
+<div class=item><div><b>·</b> 监控关键指数和指标以预测全球经济周期<div class=meta><span class=code>全球经济周期指数, 关键宏观指标组合, 市场情绪指标</span></div></div></div>
+<div class=item><div><b>·</b> 油价飙涨可能导致全球通胀和科技股下跌<div class=meta><span class=code>oil_price, tech_stock_returns</span></div></div></div>
+<div class=item><div><b>·</b> 监控美国十年期国债收益率以预测全球资产定价<div class=meta><span class=code>us_treasury_10y_yield</span></div></div></div>
+<div class=item><div><b>·</b> 价格形成基于供需关系，需分析长期和短期运动。<div class=meta><span class=code>price, volume, order_book_imbalance, inventory_level, open_interest</span></div></div></div>
+<div class=item><div><b>·</b> 美联储资产负债表缩减可能引发回购市场流动性风险（参考2019年回购危机）<div class=meta><span class=code>fed_balance_sheet, repurchase_market</span></div></div></div>
+<div class=item><div><b>·</b> 美联储前瞻性指引减少将增加不确定性，导致收益率曲线陡峭化<div class=meta><span class=code>fed_foresight, yield_steepness</span></div></div></div>
+<div class=item><div><b>·</b> 美联储鸽派倾向+财政刺激将推动美元走弱、大宗商品和股票上涨<div class=meta><span class=code>feddovishsignal, fiscalstimulussignal, dxy, commodityindex, equityindex</span></div></div></div>
+<div class=item><div><b>·</b> 2005-2006年全球通胀率3%与央行利率5%的历史类似，可作为参考<div class=meta><span class=code>通胀率, 央行利率, 市场表现</span></div></div></div>
+<div class=item><div><b>·</b> ‘国际风险平价’组合（多头美债+多头国际股票）在特定宏观环境下表现优异<div class=meta><span class=code>treasury_bond_position, intl_stock_position, macro_env_index</span></div></div></div>
+<div class=item><div><b>·</b> 美联储在通胀放缓时可能提前转向宽松（如季度降息节奏）以管理风险<div class=meta><span class=code>federal_reserve_policy, inflation_rate</span></div></div></div>
+<div class=item><div><b>·</b> 债券市场在美联储降息预期下的风险收益比优于股票<div class=meta><span class=code>美联储降息预期, 债券市场风险收益比, 股票市场风险收益比</span></div></div></div>
+<div class=item><div><b>·</b> 私营部门债务/GDP降至2003年低点，利率中枢上移；政府债务可控（美元储备货币地位），可验证利率与债务周期的关系假设<div class=meta><span class=code>利率中枢, 私营部门债务/gdp, 政府债务占比, 美元储备货币地位指标</span></div></div></div>
+<div class=item><div><b>·</b> 系统性资金流（如商品周期、信贷周期）与宏观驱动的交互机制，可用于构建可检验的宏观-微观联动假设<div class=meta><span class=code>商品周期指标, 信贷周期指标, 宏观驱动因子, 资产价格</span></div></div></div>
+<div class=item><div><b>·</b> 宏观流动性通过资本流动和货币政策传导至风险资产定价<div class=meta><span class=code>宏观流动性信号, 资本流动信号, 货币政策信号, 风险资产定价信号</span></div></div></div>
+<div class=item><div><b>·</b> 通过分解宏观周期（regime）来定位市场位置并制定交易决策<div class=meta><span class=code>宏观周期regime, 市场位置指标, 交易决策因子</span></div></div></div>
+<div class=item><div><b>·</b> Gamma squeeze mechanics serve as a quantifiable trading methodology.<div class=meta><span class=code>option_flow_liquidity, implied_volatility, stock_price_returns, volume_spikes, open_interest_changes</span></div></div></div>
+<div class=item><div><b>·</b> Applying P/E valuation model comparing Hyperliquid to traditional exchanges like<div class=meta><span class=code>pe_ratio, exchange_revenue, market_cap</span></div></div></div>
+<div class=item><div><b>·</b> Monitor Fed balance sheet changes and currency/yield movements to identify inter<div class=meta><span class=code>fed_balance_sheet, currency, yield</span></div></div></div>
+<div class=item><div><b>·</b> Analyze co-movement of Bitcoin, gold, and Nasdaq with dollar liquidity using cha<div class=meta><span class=code>bitcoin_price, gold_price, nasdaq_index, dollar_liquidity</span></div></div></div>
+<div class=item><div><b>·</b> Using GDP and oil price dynamics to analyze election impacts (methodology)<div class=meta><span class=code>gdp_index, oil_price</span></div></div></div>
+<div class=item><div><b>·</b> 边际买家（如对冲基金）通过回购协议融资购买国债，其融资成本（SOFR）与美联储政策利率的关系决定流动性紧张程度<div class=meta><span class=code>sofr, 美联储政策利率, 国债流动性指标</span></div></div></div>
+<div class=item><div><b>·</b> 美联储通过常备回购工具（SRF）隐性印钞，避免直接QE的政治压力，但本质仍扩张货币供应<div class=meta><span class=code>srf_operation_volume, m2_growth, m0_growth, fed_balance_sheet, asset_price_index</span></div></div></div>
+<div class=item><div><b>·</b> 当前利率曲线过于平缓，可能限制中小企业（SME）融资，而YCC可以缓解这一问题<div class=meta><span class=code>interest_rate_curve, sme_funding, ycc_effect</span></div></div></div>
+<div class=item><div><b>·</b> 流动性顺风/逆风信号不直接等同于市场涨跌，需结合其他宏观因素验证<div class=meta><span class=code>流动性顺风信号, 流动性逆风信号, 宏观利率因子, 通胀预期因子, 政策变化信号</span></div></div></div>
+<div class=item><div><b>·</b> 货币/财政政策（如印钞、零利率）显著推动资产价格上涨<div class=meta><span class=code>货币供应量变化, 利率水平, 财政赤字规模, 资产价格指数</span></div></div></div>
+<div class=item><div><b>·</b> 地缘政治风险缓解（如伊朗协议）可能推动资产价格上涨，伴随收益率下降和油价回落。<div class=meta><span class=code>geopolitical_risk_index, asset_price, yield_curve, oil_price</span></div></div></div>
+<div class=item><div><b>·</b> 比特币价格达到100万美元需满足四个关键需求驱动因素<div class=meta><span class=code>比特币价格预测模型, 宏观经济因子, 市场情绪指标, 供需平衡模型</span></div></div></div>
+
+</div>
+<footer>重生成:<code>.venv/bin/python scripts/gen_review_page.py</code> · 分流变了重跑即刷新。评估完把意见回复我执行。</footer>
+</body></html>
