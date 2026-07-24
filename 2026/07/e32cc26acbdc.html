@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scout 数据资产阶段汇报</title>
+<style>
+  :root{
+    color-scheme: light;
+    --plane:#f9f9f7; --surface:#fcfcfb;
+    --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --baseline:#c3c2b7; --border:rgba(11,11,11,0.10);
+    --blue:#2a78d6; --blue-soft:#cde2fb;
+    --good:#0ca30c; --warning:#e0921a; --serious:#ec835a;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:where(:not([data-theme="light"])){
+      color-scheme: dark;
+      --plane:#0d0d0d; --surface:#1a1a19;
+      --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+      --grid:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
+      --blue:#3987e5; --blue-soft:#184f95;
+      --good:#0ca30c; --warning:#fab219; --serious:#ec835a;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --plane:#0d0d0d; --surface:#1a1a19;
+    --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
+    --blue:#3987e5; --blue-soft:#184f95;
+    --good:#0ca30c; --warning:#fab219; --serious:#ec835a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--plane); color:var(--ink);
+    font-family: system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.6; padding:32px 20px; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px; margin:0 auto}
+  header{margin-bottom:8px}
+  .eyebrow{color:var(--blue); font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase}
+  h1{font-size:30px; font-weight:800; margin:6px 0 4px; letter-spacing:-.02em}
+  .sub{color:var(--ink2); font-size:15px}
+  .fresh{display:inline-flex; align-items:center; gap:7px; margin-top:12px; padding:5px 12px;
+    background:var(--surface); border:1px solid var(--border); border-radius:999px; font-size:13px; color:var(--ink2)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px color-mix(in srgb,var(--good) 22%,transparent)}
+  h2{font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);
+    margin:38px 0 14px; font-weight:700}
+  /* KPI row */
+  .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+  .kpi{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 18px 16px}
+  .kpi .v{font-size:30px; font-weight:800; letter-spacing:-.02em; line-height:1.1}
+  .kpi .v small{font-size:15px; font-weight:700; color:var(--ink2); margin-left:2px}
+  .kpi .l{font-size:13px; color:var(--ink2); margin-top:4px}
+  /* pillars */
+  .pillars{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  .pillar{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; position:relative; overflow:hidden}
+  .pillar::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--blue)}
+  .pillar .tag{font-size:12px; font-weight:700; color:var(--blue)}
+  .pillar h3{font-size:18px; font-weight:800; margin:5px 0 6px}
+  .pillar .big{font-size:24px; font-weight:800; letter-spacing:-.01em}
+  .pillar .big small{font-size:14px;font-weight:700;color:var(--ink2)}
+  .pillar p{font-size:13.5px; color:var(--ink2); margin-top:8px}
+  .pillar.moat::before{background:var(--good)}
+  .pillar.moat .tag{color:var(--good)}
+  /* bar chart */
+  .chart{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 22px 14px}
+  .chart .cap{font-size:12px; color:var(--muted); margin:2px 0 18px}
+  .row{display:grid; grid-template-columns:150px 1fr 100px; align-items:center; gap:12px; margin-bottom:11px}
+  .row .name{font-size:13px; color:var(--ink2); text-align:right}
+  .track{height:20px; background:color-mix(in srgb,var(--grid) 55%,transparent); border-radius:5px; overflow:hidden}
+  .bar{height:100%; background:var(--blue); border-radius:5px; min-width:3px;
+    display:flex; align-items:center; transition:width .2s}
+  .row .val{font-size:13px; font-weight:700; font-variant-numeric:tabular-nums}
+  /* maturity table */
+  table{width:100%; border-collapse:collapse; background:var(--surface);
+    border:1px solid var(--border); border-radius:14px; overflow:hidden; font-size:13.5px}
+  th,td{text-align:left; padding:11px 16px; border-bottom:1px solid var(--border)}
+  th{font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); font-weight:700}
+  tr:last-child td{border-bottom:none}
+  td.num{text-align:right; font-variant-numeric:tabular-nums; font-weight:700}
+  .pill{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; padding:2px 9px; border-radius:999px}
+  .pill.ok{color:var(--good); background:color-mix(in srgb,var(--good) 14%,transparent)}
+  .pill.warn{color:var(--warning); background:color-mix(in srgb,var(--warning) 16%,transparent)}
+  .pill::before{content:""; width:7px;height:7px;border-radius:50%;background:currentColor}
+  /* takeaways */
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px}
+  .card .n{width:26px;height:26px;border-radius:8px;background:var(--blue);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-bottom:10px}
+  .card h4{font-size:15px; font-weight:800; margin-bottom:5px}
+  .card p{font-size:13px; color:var(--ink2)}
+  .foot{margin-top:36px; padding-top:16px; border-top:1px solid var(--border);
+    font-size:12px; color:var(--muted)}
+  @media (max-width:760px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .pillars,.cards{grid-template-columns:1fr}
+    .row{grid-template-columns:96px 1fr 76px; gap:8px}
+    h1{font-size:24px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Scout · 数据资产阶段汇报</div>
+    <h1>我们攒下了什么数据,值多少</h1>
+    <div class="sub">截至 2026-07-24 · 采集守护进程 24/7 在线,今天仍在长</div>
+    <div class="fresh"><span class="dot"></span>最新快照 7/24 · 近 7 天日均新增约 31 万行 · 15/18 通道启用</div>
+  </header>
+
+  <h2>一眼看总量</h2>
+  <div class="kpis">
+    <div class="kpi"><div class="v">1210<small>万条</small></div><div class="l">全库累计记录</div></div>
+    <div class="kpi"><div class="v">48.7<small>万</small></div><div class="l">不重复亚马逊关键词</div></div>
+    <div class="kpi"><div class="v">38<small>个</small></div><div class="l">每日快照(6/7 起连拍)</div></div>
+    <div class="kpi"><div class="v">9<small>国</small></div><div class="l">覆盖站点 US/UK/DE/FR…</div></div>
+  </div>
+
+  <h2>四大资产 · 各自的价值</h2>
+  <div class="pillars">
+    <div class="pillar moat">
+      <div class="tag">◆ 护城河 · 别人回不去的时间线</div>
+      <h3>亚马逊关键词时序</h3>
+      <div class="big">1050<small>万行</small></div>
+      <p>9 国、48.7 万个词,从 6/7 起每天一拍,已连拍 38 个快照。今天的榜单谁都能抓,但"过去这段每天长什么样"只有持续蹲守的人有——像一部连拍 47 天的延时摄影,别人现在进场只能拍到今天这一帧。</p>
+    </div>
+    <div class="pillar">
+      <div class="tag">◆ 需求词大网</div>
+      <h3>老外在搜什么</h3>
+      <div class="big">约 125<small>万条</small></div>
+      <p>搜索联想 97 万 + 霸榜商品 15 万 + 搜索趋势 14 万 + Google Trends 4 万。合起来能回答:在搜什么、搜索量涨还是跌、谁在吃这个词的流量。</p>
+    </div>
+    <div class="pillar">
+      <div class="tag">◆ 先行指标</div>
+      <h3>Kickstarter 众筹项目</h3>
+      <div class="big">21<small>万个</small></div>
+      <p>新品类的"预告片"——一个东西先在众筹火,往往几个月后才变成亚马逊搜索词。用来提前埋伏还没登陆亚马逊的空白品类。</p>
+    </div>
+    <div class="pillar">
+      <div class="tag">◆ 深加工流水线</div>
+      <h3>把原料炼成信号</h3>
+      <div class="big">已跑通 5 条</div>
+      <p>反查 ASIN 8.3 万、意图分类、评论方面情感、1688 货源、机会扫描。机器已经转起来,部分渠道量还薄(见下方成熟度)。</p>
+    </div>
+  </div>
+
+  <h2>各资产表体量对比</h2>
+  <div class="chart">
+    <div class="cap">横轴为对数刻度(体量跨度大),真实数字标在右侧 · 单一指标:表内记录数</div>
+    <div id="bars"></div>
+  </div>
+
+  <h2>成熟度 · 哪些能下结论,哪些还在起步</h2>
+  <table>
+    <thead><tr><th>数据渠道</th><th>体量</th><th>最新</th><th>状态</th></tr></thead>
+    <tbody id="mat"></tbody>
+  </table>
+
+  <h2>基于这些,现实能做的三件事</h2>
+  <div class="cards">
+    <div class="card"><div class="n">1</div><h4>异动雷达周报</h4><p>用 38 天时序算出"本周飙升 / 新冒出的词",自动推飞书。不用新采一行数据,最快见效,也最适合当家底展品。</p></div>
+    <div class="card"><div class="n">2</div><h4>选品诊断书样品</h4><p>挑一个品类把全链路串通:词在涨→搜索量竞争度→用户在骂什么→1688 货源→买还是逛。产出一份咨询交付样品。</p></div>
+    <div class="card"><div class="n">3</div><h4>众筹→亚马逊时光机</h4><p>算"哪些众筹爆款品类,亚马逊还没对应热词"——合法提前抢跑的空白地带。一次性跑完即有结论。</p></div>
+  </div>
+
+  <div class="foot">
+    口径说明:1210 万为全库累计记录(含每日快照,同词多次采样)。"能下结论"指样本足以支撑决策;评论情感(616)、产品详情(2 条)、海关(651)仍属"管道已通、量薄",近期只作演示不作依据。护城河的唯一来源是那条每天变长的时间线——采集进程别停,家底每多跑一天就厚一天。
+  </div>
+</div>
+
+<script>
+  // 单一指标横向条形图,对数刻度排宽,真实数字直接标注
+  const bars = [
+    {name:"亚马逊关键词",   v:10492466},
+    {name:"搜索联想词",     v:972900},
+    {name:"Kickstarter",   v:210806},
+    {name:"霸榜商品",       v:149505},
+    {name:"搜索趋势",       v:137874},
+    {name:"反查 ASIN",      v:83422},
+    {name:"Google Trends", v:40816},
+    {name:"卖家精灵指标",   v:11499},
+    {name:"节假日历",       v:5272},
+    {name:"1688 货源",      v:4172},
+    {name:"意图分类",       v:3913},
+    {name:"海关贸易",       v:651},
+    {name:"评论情感",       v:616},
+  ];
+  const fmt = n => n>=10000 ? (n/10000).toFixed(n>=1000000?0:1).replace(/\.0$/,'')+"万" : n.toLocaleString();
+  const logMax = Math.log10(bars[0].v), logMin = Math.log10(300);
+  const el = document.getElementById("bars");
+  el.innerHTML = bars.map(b=>{
+    const w = Math.max(3, ((Math.log10(b.v)-logMin)/(logMax-logMin))*100);
+    return `<div class="row" role="img" aria-label="${b.name} ${b.v.toLocaleString()} 条">
+      <div class="name">${b.name}</div>
+      <div class="track"><div class="bar" style="width:${w}%"></div></div>
+      <div class="val">${fmt(b.v)}</div></div>`;
+  }).join("");
+
+  const mat = [
+    {n:"亚马逊关键词时序", v:"1050 万行", d:"7/24", ok:1},
+    {n:"搜索需求词网",     v:"约 125 万", d:"7/24", ok:1},
+    {n:"Kickstarter 众筹", v:"21 万项目", d:"存量", ok:1},
+    {n:"反查 ASIN 关键词", v:"8.3 万",   d:"7/23", ok:1},
+    {n:"意图分类",         v:"3913",     d:"7/24", ok:0},
+    {n:"1688 货源",        v:"4172",     d:"7/23", ok:0},
+    {n:"评论方面情感",     v:"616",      d:"7/23", ok:0},
+    {n:"机会扫描候选",     v:"130",      d:"7/22", ok:0},
+    {n:"海关贸易 / 产品详情", v:"651 / 2", d:"存量", ok:0},
+  ];
+  document.getElementById("mat").innerHTML = mat.map(m=>`<tr>
+    <td>${m.n}</td><td class="num">${m.v}</td><td>${m.d}</td>
+    <td><span class="pill ${m.ok?'ok':'warn'}">${m.ok?'成熟 · 可下结论':'起步 · 量薄'}</span></td></tr>`).join("");
+</script>
+</body>
+</html>
