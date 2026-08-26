@@ -1,1 +1,1 @@
-{"versionCode":8,"versionName":"0.3.4","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/8843ad4f0292.apk","notes":"修复:VPN半开时登录连不上(DNS被劫持)——登录请求改走原生加密DNS通道,VPN开/关/半开都能连"}
+{"versionCode":9,"versionName":"0.3.5","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/76b5229eb1b6.apk","notes":"键盘正式换装:按设计稿重做面板(关系chips/已检测条/读懂TA/emoji九宫格);弹出时机与普通键盘一致,不再自动弹出"}
