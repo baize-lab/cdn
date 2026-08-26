@@ -1,1 +1,1 @@
-{"versionCode":7,"versionName":"0.3.3","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/f43f42498f5d.apk","notes":"引导第2步改为新人专属福利:恋爱嘴替等角色卡内测直接免费领取(可多张),领取同步角色市场·已拥有;市场去商业化,内测期全部限免"}
+{"versionCode":8,"versionName":"0.3.4","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/8843ad4f0292.apk","notes":"修复:VPN半开时登录连不上(DNS被劫持)——登录请求改走原生加密DNS通道,VPN开/关/半开都能连"}
