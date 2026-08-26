@@ -1,1 +1,1 @@
-{"versionCode":12,"versionName":"0.5.0","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/8bc52b5a8825.apk","notes":"v0.5.0 键盘自己会打字了:内置拼音(6.5万词库带候选词)+英文+数字符号,不用再跳去别的输入法;🌐保留当逃生门"}
+{"versionCode":13,"versionName":"0.6.0","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/f1f600bb701e.apk","notes":"v0.6.0 修「显示已启用但微信里不是妙回」：安卓的启用和正在用是两个开关，App 现在读系统真实状态显示三态，中间态给「立即切换」一键设为当前键盘"}
