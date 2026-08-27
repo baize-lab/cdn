@@ -1,1 +1,1 @@
-{"versionCode":17,"versionName":"0.7.2","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/3dc083c455f7.apk","notes":"把我们自己那个半成品键盘整块摘掉了,界面上不再出现,免得你点进去以为App坏了。代码留着,以后补好简拼再接回来。现在妙回只做AI回复:出完稿自动切回你自己的输入法"}
+{"versionCode":18,"versionName":"0.7.3","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/33226bdce225.apk","notes":"① 不再自动切键盘了 ② 点「换一条」会把上一条抹掉再写,不再在后面又贴一条(要是你改过那段字,它会停下来提醒你先清空,不会偷偷删你改的) ③ 「换一条」用你上次点的那个语气,而且这回记得住了——以前键盘被系统回收就忘,只会回你一句「先点一个语气按钮」"}
