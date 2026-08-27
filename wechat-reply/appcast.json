@@ -1,1 +1,1 @@
-{"versionCode":15,"versionName":"0.7.0","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/3cb0172de8fd.apk","notes":"键盘大修:退格删不掉/发送没反应两个毛病根治;照你给的 Gboard 重做——常驻数字行+独立⇧+光标键+符号四组;新增九宫格9键;键盘现在会记住你选过的词和你改过的AI稿子"}
+{"versionCode":16,"versionName":"0.7.1","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/7fa8ea7226aa.apk","notes":"① 修好「点X回退没反应」——按住一次就把那颗键按死了,是我上一版引入的bug ② 打字交回给你自己的键盘:出完稿自动切回你惯用的输入法,妙回只做AI那块(我们的内置拼音不会简拼wsm→为什么,不跟搜狗百度比打字了)"}
