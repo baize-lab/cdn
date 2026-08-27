@@ -1,1 +1,1 @@
-{"versionCode":16,"versionName":"0.7.1","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/7fa8ea7226aa.apk","notes":"① 修好「点X回退没反应」——按住一次就把那颗键按死了,是我上一版引入的bug ② 打字交回给你自己的键盘:出完稿自动切回你惯用的输入法,妙回只做AI那块(我们的内置拼音不会简拼wsm→为什么,不跟搜狗百度比打字了)"}
+{"versionCode":17,"versionName":"0.7.2","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/3dc083c455f7.apk","notes":"把我们自己那个半成品键盘整块摘掉了,界面上不再出现,免得你点进去以为App坏了。代码留着,以后补好简拼再接回来。现在妙回只做AI回复:出完稿自动切回你自己的输入法"}
