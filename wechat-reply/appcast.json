@@ -1,1 +1,1 @@
-{"versionCode":20,"versionName":"0.7.5","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/5554dd3eee54.apk","notes":"修复:离开家里 WiFi 后键盘出不了稿 —— 出厂端点原先写死局域网地址,现已换成公网入口,4G/5G 下可正常用"}
+{"versionCode":24,"versionName":"0.7.9","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/fdde22a461bc.apk","notes":"提速+修三件事:出稿接入付费快通道(2秒出字);点语气必先清干净旧稿(光标在哪都行);退回上一条修复+新增「还原」反悔键"}
