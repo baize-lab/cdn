@@ -1,1 +1,1 @@
-{"versionCode":19,"versionName":"0.7.4","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/2619fd55c532.apk","notes":"「换一条」现在直接覆盖,不再问东问西;换掉的旧稿存着,底栏中间那格会变成「↩ 退回上一条」,点一次退一格,最多退10条。没得退时那格自动变回原来那句话,键盘高度不变"}
+{"versionCode":20,"versionName":"0.7.5","apkUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/baize-lab/cdn/main/2026/08/5554dd3eee54.apk","notes":"修复:离开家里 WiFi 后键盘出不了稿 —— 出厂端点原先写死局域网地址,现已换成公网入口,4G/5G 下可正常用"}
